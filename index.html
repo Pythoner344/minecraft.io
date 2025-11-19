@@ -1,21 +1,18 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Наш Minecraft сервер — Новый год</title><!-- Minecraft стиль --><style>
-  @font-face {
-    font-family: 'Minecraft';
-    src: url('https://fonts.cdnfonts.com/s/7003/Minecraftia-Regular.ttf') format('truetype');
-  }
-
+<title>Наш Minecraft сервер — Новый год</title>
+<style>
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'Minecraft', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: url('https://i.ibb.co/8m4W2ZC/mc-bg.png') center/cover fixed;
+    background: linear-gradient(135deg, #0a1f2b, #1a3a50, #0a1f2b);
     color: #fff;
     overflow-x: hidden;
   }
@@ -34,6 +31,159 @@
     animation-iteration-count: infinite;
   }
 
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+
+  header nav button {
+    background: none;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s;
+  }
+
+  header nav button:hover {
+    background-color: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 10px #ff0000;
+  }
+
+  section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px 20px;
+  }
+
+  .server-box, .info-box {
+    background-color: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    border: 3px solid #ff0000;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .server-box h2, .info-box h2 {
+    font-size: 28px;
+    color: #ffdd00;
+    margin-bottom: 20px;
+  }
+
+  .server-box p, .info-box p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+
+  .server-box button {
+    background: linear-gradient(90deg, #ff0000, #00ff00);
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s all;
+    box-shadow: 0 0 15px #ff0000;
+  }
+
+  .server-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff0;
+  }
+
+  ul {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  a {
+    color: #ffd700;
+    text-decoration: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <button onclick="document.getElementById('server').scrollIntoView();">Новый сервер</button>
+    <button onclick="document.getElementById('about').scrollIntoView();">О нас</button>
+    <button onclick="document.getElementById('download').scrollIntoView();">Как скачать Bedrock</button>
+  </nav>
+</header>
+
+<!-- Падающий снег -->
+<script>
+  const snowCount = 50;
+  for(let i = 0; i < snowCount; i++) {
+    let snow = document.createElement('div');
+    snow.className = 'snowflake';
+    snow.style.left = Math.random() * window.innerWidth + 'px';
+    snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    snow.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    snow.innerHTML = '❄';
+    document.body.appendChild(snow);
+  }
+</script>
+
+<section id="server">
+  <div class="server-box">
+    <h2>Новый сервер — Выживание</h2>
+    <p>Хотите играть у нас? <br>Оставьте заявку прямо сейчас!</p>
+    <button onclick="window.location.href='https://t.me/MinecraftServerAterBot'">Оставить заявку</button>
+  </div>
+</section>
+
+<section id="about">
+  <div class="info-box">
+    <h2>О нас</h2>
+    <p>Мы создаём уникальный сервер Minecraft с интересными режимами выживания, дружелюбным сообществом и праздничной атмосферой. Присоединяйтесь к нам и играйте вместе с друзьями в Новый год!( версия 1.21.114.1)</p>
+  </div>
+</section>
+
+<section id="download">
+  <div class="info-box">
+    <h2>Как скачать Minecraft Bedrock</h2>
+    <p>Чтобы играть на нашем сервере, скачайте официальную версию Minecraft Bedrock Edition:</p>
+    <ul>
+      <li>PC (Windows 10/11): <a href="https://telegra.ph/Minecraft-11-18-7">Скачать</a></li>
+      <li>Android / iOS: через <a href="https://https://mcpehub.org/download-mcpe/14607-minecraft-1-21-114-01.html">Google Play</a> или <a href="https://apps.apple.com/app/minecraft/id479516143">App Store</a></li>
+      <li>Консоли: через магазин вашей платформы</li>
+    </ul>
+  </div>
+</section>
+
+</body>
+</html>
   @keyframes fall {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(100vh) rotate(360deg); }
